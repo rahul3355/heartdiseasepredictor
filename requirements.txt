@@ -1,0 +1,11 @@
+import pickle
+from flask import Flask, render_template, request, redirect, url_for, session
+from sqlite3 import *
+from flask_mail import Mail, Message
+from random import randrange
+import os
+import sqlite3
+
+
+flask==2.0.1
+python==3.9.6
