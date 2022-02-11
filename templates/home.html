@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Heart Disease Predictor</title>
+</head>
+
+<body style="font-family: Consolas;">
+    <center>
+        <div style="margin: 50px;" class="container">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/" style="color: black;">Heart Disease
+                                Predictor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/table" style="color: black;">Table</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/working" style="color: black;">Working</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/help" style="color: black;">Medical Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutus" style="color: black;">About Us</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+            <br>
+            <br>
+            <div class="container">
+                <form action="/check">
+                    <div class="row">
+                        <div class="col">
+                            <input type="number" class="form-control" name="age" placeholder="Enter your age" required
+                                required pattern="^[A-Za-z]+$" minlength="2" min="10" max="130">
+                            <p style="margin-top: 5px; font-size: small; text-align: start;">10 - 130</p>
+                        </div>
+                        <div class="col">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Select your Gender</span>
+                                </div>
+                                <select class="form-select" type="number" aria-label="sex" name="sex">
+                                    <option type="number" name="sex" value="1" selected>Male</option>
+                                    <option type="number" name="sex" value="0">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Chest Pain Type</span>
+                                </div>
+                                <select class="form-select" aria-label="cp" name="cp" type="number">
+                                    <option value="0" selected>Type 0</option>
+                                    <option value="1">Type 1</option>
+                                    <option value="2">Type 2</option>
+                                    <option value="3">Type 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Blood Pressure</span>
+                                </div>
+                                <input type="number" name="trestbps" step=0.01 class="form-control"
+                                    aria-label="Username" aria-describedby="addon-wrapping"
+                                    placeholder="resting blood pressure" required min="80" max="200">
+
+                            </div>
+                            <p style="margin-top: 5px; font-size: small; text-align: start;">80 - 200</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Cholestoral</span>
+                                </div>
+                                <input type="number" name="chol" class="form-control" aria-label="Username"
+                                    aria-describedby="addon-wrapping" placeholder="serum cholestoral in mg/dl" required
+                                    min="100" max="600">
+                            </div>
+                            <p style="margin-top: 5px; font-size: small; text-align: start;">100 - 600</p>
+                        </div>
+
+                        <div class="col">
+                            <div class="input-group flex-nowrap" style="margin: 5px;">
+                                <div class="input-group-prepend">
+                                    <p style="padding-right: 30px;">Fasting Blood Sugar > 120mg/dl</p>
+                                </div>
+                                <div class="form-check form-check-inline" name="slope" type="number">
+                                    <input class="form-check-input" type="radio" id="inlineRadio1" value="1" name="fbs"
+                                        type="number" checked>
+                                    <label class="form-check-label" for="inlineRadio1">True</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineRadio2" value="0" name="fbs"
+                                        type="number">
+                                    <label class="form-check-label" for="inlineRadio2">False</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group flex-nowrap" style="margin: 5px;">
+                                <div class="input-group-prepend">
+                                    <p style="padding-right: 30px;">Resting electrocardiographic results</p>
+                                </div>
+                                <div class="form-check form-check-inline" name="slope" type="number">
+                                    <input class="form-check-input" type="radio" id="inlineRadio1" value="0"
+                                        name="restecg" type="number" checked>
+                                    <label class="form-check-label" for="inlineRadio1">0</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineRadio2" value="1"
+                                        name="restecg" type="number">
+                                    <label class="form-check-label" for="inlineRadio2">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineRadio2" value="2"
+                                        name="restecg" type="number">
+                                    <label class="form-check-label" for="inlineRadio2">2</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Heart Rate</span>
+                                </div>
+                                <input type="number" name="thalach" step=0.01 class="form-control" aria-label="Username"
+                                    aria-describedby="addon-wrapping" placeholder="maximum heart rate achieved" required
+                                    min="70" max="210">
+                            </div>
+                            <p style="margin-top: 5px; font-size: small; text-align: start;">70 - 210</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group flex-nowrap" style="margin: 5px;">
+                                <div class="input-group-prepend">
+                                    <p style="padding-right: 30px;">Exercise induced angina</p>
+                                </div>
+                                <div class="form-check form-check-inline" name="slope" type="number">
+                                    <input class="form-check-input" type="radio" id="inlineRadio1" value="1"
+                                        name="exang" type="number" checked>
+                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineRadio2" value="0"
+                                        name="exang" type="number">
+                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Oldpeak</span>
+                                </div>
+                                <input type="number" name="oldpeak" step=0.001 class="form-control"
+                                    aria-label="Username" aria-describedby="addon-wrapping"
+                                    placeholder="ST depression induced by exercise relative to rest" required min="0.0"
+                                    max="6.0">
+                            </div>
+                            <p style="margin-top: 5px; font-size: small; text-align: start;">0.0 - 6.0</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <p style="padding-right: 30px;">The slope of the peak exercise ST segment</p>
+                                </div>
+                                <div class="form-check form-check-inline" name="slope" type="number">
+                                    <input class="form-check-input" type="radio" id="inlineRadio1" value="0"
+                                        name="slope" type="number" checked>
+                                    <label class="form-check-label" for="inlineRadio1">0</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineRadio2" value="1"
+                                        name="slope" type="number">
+                                    <label class="form-check-label" for="inlineRadio2" value="1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineRadio3" value="2"
+                                        name="slope">
+                                    <label class="form-check-label" for="inlineRadio3" value="2">2</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group flex-nowrap" style="margin: 5px;">
+                                    <div class="input-group-prepend">
+                                        <p style="padding-right: 30px;">Number of major vessels</p>
+                                    </div>
+                                    <div class="form-check form-check-inline" name="slope" type="number">
+                                        <input class="form-check-input" type="radio" id="inlineRadio1" value="0"
+                                            name="ca" type="number" checked>
+                                        <label class="form-check-label" for="inlineRadio1">0</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="inlineRadio2" value="1"
+                                            name="ca" type="number">
+                                        <label class="form-check-label" for="inlineRadio2">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="inlineRadio2" value="2"
+                                            name="ca" type="number">
+                                        <label class="form-check-label" for="inlineRadio2">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="inlineRadio2" value="3"
+                                            name="ca" type="number">
+                                        <label class="form-check-label" for="inlineRadio2">3</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col">
+                                <div class="input-group flex-nowrap">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="addon-wrapping">Defect Type</span>
+                                    </div>
+                                    <select class="form-select" aria-label="Default select example" name="thal"
+                                        type="number">
+                                        <option value="0">Type 0</option>
+                                        <option value="1" selected>Type 1</option>
+                                        <option value="2">Type 2</option>
+                                        <option value="3">Type 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <button type="submit" class="btn btn-outline-dark" style="font-weight: 900; font-size: 32px;">
+                            PREDICT </button>
+                        <br>
+                </form>
+                <h2 style="margin-top: 25px;">{{msg}}</h2>
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+    </center>
+</body>
+
+</html>
